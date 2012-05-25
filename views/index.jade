@@ -1,2 +1,7 @@
-h1= title
-p Welcome to #{title}
+extends layout
+
+block content
+    h1= title
+    p Welcome to #{title}
+    a(class='button', href='chatty') .
+        Let's chat
