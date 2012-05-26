@@ -7,17 +7,6 @@ block append head
     script(type='text/javascript')
         var socket = io.connect();
 
-        socket.on('msg', function(data) {
-            var msg = JSON.parse(data);
-            appendMsg(msg);
-        });
-
-        socket.on('init', function(data) {
-            var messages = JSON.parse(data)
-            for (i in messages)
-                appendMsg(messages[i])
-        });
-
         function appendMsg(msg) {
             $('#msgs').append(function() {
                 var div = $('<div>');
@@ -26,6 +15,22 @@ block append head
             });
             $('#msgs')[0].scrollTop = $('#msgs')[0].scrollHeight;
         }
+
+        socket.on('msg', function(data) {
+            var msg = JSON.parse(data);
+            appendMsg(msg);
+        });
+
+        socket.on('init', function(data) {
+            var i, messages = JSON.parse(data);
+            for (i in messages)
+            {
+                if ( messages.hasOwnProperty(i) )
+                {
+                    appendMsg(messages[i]);
+                }
+            }
+        });
 
         function sendMsg() {
             var msg = {};
