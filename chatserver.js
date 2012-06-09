@@ -6,13 +6,13 @@ var INIT_MESSAGES = 5;
 
 var messages = [];
 
-Array.prototype.inject = function(element) {
-
-    if (this.length >= INIT_MESSAGES) {
-        this.shift();
+function inject_message(messages,message)
+{
+    if (messages.length >= INIT_MESSAGES) {
+        messages.shift();
     }
-    this.push(element);
-};
+    messages.push(message);
+}
 
 // "start" will launch the chatserver and simply broadcast whatever comes in to all clients
 // returning the io socket on which it listens
@@ -45,7 +45,7 @@ exports.start = function(app)
             }
 
             var message = JSON.parse(msg);
-            messages.inject(message);
+            inject_message(messages,message);
 
             client.broadcast.emit('msg', msg);
         });

@@ -2,45 +2,9 @@ extends layout
 
 block append head
     link(rel='stylesheet', href='/stylesheets/chatty.css')
-    script(src="http://code.jquery.com/jquery-1.7.1.js",type="text/javascript")
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js",type="text/javascript")
     script(src="/socket.io/socket.io.js")
-    script(type='text/javascript')
-        var socket = io.connect();
-
-        function appendMsg(msg) {
-            $('#msgs').append(function() {
-                var div = $('<div>');
-                div.html('<b>' + msg.username + ':</b> ' + msg.message);
-                return div;
-            });
-            $('#msgs')[0].scrollTop = $('#msgs')[0].scrollHeight;
-        }
-
-        socket.on('msg', function(data) {
-            var msg = JSON.parse(data);
-            appendMsg(msg);
-        });
-
-        socket.on('init', function(data) {
-            var i, messages = JSON.parse(data);
-            for (i in messages)
-            {
-                if ( messages.hasOwnProperty(i) )
-                {
-                    appendMsg(messages[i]);
-                }
-            }
-        });
-
-        function sendMsg() {
-            var msg = {};
-            $.each($('#chat').serializeArray(), function(i,v) {
-                msg[v.name] = v.value;
-            });
-            $("#msg").val("");
-            appendMsg(msg);
-            socket.emit('msg', JSON.stringify(msg));
-        }
+    script(src="/javascripts/chatty.js",type='text/javascript')
 
 block content
     h1 #{title} chatting away
