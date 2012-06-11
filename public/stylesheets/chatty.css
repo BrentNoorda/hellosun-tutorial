@@ -1,6 +1,59 @@
 #msgs {
-  height: 300px;
-  background: #f3f3ff;
-  font-family: monospace, sans;
-  overflow:auto;
+	background: #fff;
+}
+
+.bubble-content {
+	position:relative;
+	padding:6px;
+	margin:4px 0 0 0;
+	color:#000;
+	background:#f3961c; /* default background for browsers without gradient support */
+	/* css3 */
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(#f9d835), to(#f3961c));
+	background:-moz-linear-gradient(#f9d835, #f3961c);
+	background:-o-linear-gradient(#f9d835, #f3961c);
+	background:linear-gradient(#f9d835, #f3961c);
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+	-webkit-border-bottom-left-radius:0;
+	-moz-border-bottom-left-radius:0;
+	border-bottom-left-radius:0;
+
+	font-family: Arial;
+	font-size: 12px;
+}
+
+.bubble-citation {
+	margin:0 0 8px 0;
+}
+
+.whom {
+	margin: -8px 0 0 14px;
+	color:#000;
+	font-family: Arial;
+	font-size: 12px;
+}
+
+.quote-tail {
+	background:#f3961c;
+	width:20px;
+	height:16px;
+	-webkit-border-radius:8px;
+	-moz-border-radius:8px;
+	border-radius:8px;
+	margin:0;
+	margin-top:-9px;
+}
+
+.quote-tail2 {
+	background:#fff;
+	width:14px;
+	height:12px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+	border-radius:6px;
+	margin:0;
+	margin-top:-12px;
+	margin-left:8px;
 }

@@ -7,7 +7,9 @@ block append head
     script(src="/javascripts/chatty.js",type='text/javascript')
 
 block content
-    h1 #{title} chatting away
+    h1
+        a(href='./') .
+            #{title}
     #msgs
     #form
         form(id="chat",onsubmit="sendMsg(); return false;")

@@ -2,6 +2,11 @@ extends layout
 
 block content
     h1= title
-    p Welcome to #{title}
-    a(class='button', href='chatty') .
-        Let's chat
+
+    p
+     | Welcome to #{title}, a sample app and guide to creating a social
+     | networking empire, from scratch, for free, circa 2012. For more information see
+     | <a href="http://unlessimwrong.blogspot.com/2012/06/building-hellosun-table-of-contents.html"> the HelloSun tutorial</a>.
+
+    a(class='button', href='chatty')
+        | <font size="+2">Let's chat</font>
